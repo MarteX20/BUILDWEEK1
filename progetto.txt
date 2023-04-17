@@ -1,0 +1,4 @@
+1. Creiamo  Welcome.html, domande.html, risultati.html e feedback.html e i sui JS con CSS
+2. welcome.html => a suo interno un div con classe 'mainContainer'
+
+3. Domande =>  

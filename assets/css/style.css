@@ -1,0 +1,124 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@700&display=swap');
+
+
+
+body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background: url(../img/bg.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: bottom;
+    margin: 0 auto;
+    margin-top: 3rem;
+    color: white;
+    font-family: 'Outfit', sans-serif;
+    font-weight: 400;
+    width: 80%;
+}
+
+/*====== Stile Header ======*/
+header {
+    text-align: left;
+    height: 7vh;
+}
+
+header img {
+    height: 80%;
+}
+
+/*====== Contenitore Main ======*/
+.mainContainer{
+    margin: 0 auto;
+} 
+
+h1 {
+    font-family: 'Outfit', sans-serif;
+    font-weight: 400;
+    font-size: 6em;
+    line-height: 0.8;
+    margin-bottom: 0.6em;
+} 
+
+p {
+    margin-top: 0;
+    font-size: 1.2em;
+}
+h2 {
+    color: #c2128d;
+    font-size: 3em;
+    margin: 0;
+    margin-bottom: 0.2em;
+}
+
+ul li {
+    font-weight: 300;
+    font-family: 'Roboto', sans-serif;
+    line-height: 1.5;
+
+}
+
+ul {
+    margin-bottom: 6.25em;
+}
+
+
+/*====== Footer ======*/
+footer {
+    margin-bottom: 5rem;
+}
+
+#accept{
+    appearance: none;
+    background-color: transparent;
+    border: 2px solid #ffffff;
+    width: 1.5em;
+    height: 1.5em;
+    margin: 0 1em 0 0;
+    cursor: pointer;
+}
+
+
+/*====== Input Container checkbox e il testo affianco ======*/
+
+#inputContainer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#inputContainer > p {
+    display: inline-block;
+}
+
+form{
+    display: flex;
+    align-items: center;
+}
+
+
+
+#poceedContainer{
+    font-family: 'Roboto', sans-serif;
+    text-align: right;
+    width: 15%;
+}
+
+
+
+#proceedButton {
+    background-color: #00ffff;
+    padding: 0.8em 3em 0.8em 3em;
+    border: none;
+    font-weight: 900;
+    font-size: 18px;
+    color: rgb(2, 3, 83);
+    -webkit-box-shadow: 0px 0px 25px 0px #00ffff;
+    -moz-box-shadow: 0px 0px 25px 0px #00ffff;
+    box-shadow: 0px 0px 25px 0px #00ffff;
+    cursor: pointer;
+}
