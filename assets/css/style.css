@@ -28,13 +28,13 @@ header {
 }
 
 header img {
-    height: 80%;
+    height: 60%;
 }
 
 /*====== Contenitore Main ======*/
-.mainContainer{
+.mainContainer {
     margin: 0 auto;
-} 
+}
 
 h1 {
     font-family: 'Outfit', sans-serif;
@@ -42,18 +42,21 @@ h1 {
     font-size: 6em;
     line-height: 0.8;
     margin-bottom: 0.6em;
-} 
+}
 
 p {
     margin-top: 0;
     font-size: 1.2em;
 }
+
 h2 {
     color: #c2128d;
     font-size: 3em;
     margin: 0;
     margin-bottom: 0.2em;
 }
+
+
 
 ul li {
     font-weight: 300;
@@ -72,7 +75,7 @@ footer {
     margin-bottom: 5rem;
 }
 
-#accept{
+#accept {
     appearance: none;
     background-color: transparent;
     border: 2px solid #ffffff;
@@ -91,26 +94,245 @@ footer {
     align-items: center;
 }
 
-#inputContainer > p {
+#inputContainer>p {
     display: inline-block;
 }
 
-form{
+form {
     display: flex;
     align-items: center;
 }
 
 
-
-#poceedContainer{
+#poceedContainer {
     font-family: 'Roboto', sans-serif;
     text-align: right;
     width: 15%;
 }
 
-
-
 #proceedButton {
+    background-color: #00ffff;
+    padding: 0.8em 3em 0.8em 3em;
+    border: none;
+    font-weight: 900;
+    font-size: 18px;
+    color: rgb(2, 3, 83);
+    -webkit-box-shadow: 0px 0px 25px 0px #00ffff;
+    -moz-box-shadow: 0px 0px 25px 0px #00ffff;
+    box-shadow: 0px 0px 25px 0px #00ffff;
+    cursor: pointer;
+}
+
+li {
+    list-style: none;
+}
+
+/*====== Stile del timer ======*/
+
+#app {
+    display: flex;
+    justify-content: right;
+}
+
+.base-timer {
+    position: relative;
+    width: 250px;
+    height: 250px;
+}
+
+.base-timer__svg {
+    transform: scaleX(-1);
+}
+
+.base-timer__circle {
+    fill: none;
+    stroke: none;
+}
+
+.base-timer__path-elapsed {
+    stroke-width: 7px;
+    stroke: grey;
+}
+
+.base-timer__path-remaining {
+    stroke-width: 7px;
+    stroke-linecap: round;
+    transform: rotate(90deg);
+    transform-origin: center;
+    transition: 1s linear all;
+    fill-rule: nonzero;
+    stroke: currentColor;
+}
+
+.base-timer__path-remaining.green {
+    color: #c2128d;
+}
+
+.base-timer__path-remaining.orange {
+    color: orange;
+}
+
+.base-timer__path-remaining.red {
+    color: red;
+}
+
+.base-timer__label {
+    position: absolute;
+    width: 250px;
+    height: 250px;
+    top: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 48px;
+}
+
+/*====== mainContainer risultati ======*/
+
+
+.resFeedContainer {
+
+
+}
+
+#titoloRes {
+    color: white;
+    font-size: 2.5em;
+    margin: 0;
+    text-align: center;
+}
+
+#summaryText {
+    font-weight: 200;
+    font-size: 1.2em;
+    margin: 0;
+    text-align: center;
+
+}
+
+/*====== Pulsante rateUS ======*/
+
+#rateUs {
+    appearance: none;
+    background-color: transparent;
+    border: 2px solid #ffffff;
+    padding: 0.8em 3em 0.8em 3em;
+    font-weight: 900;
+    font-size: 18px;
+    color: rgb(255, 255, 255);
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    -webkit-box-shadow: 0px 0px 15px 0px rgb(43, 43, 154);
+    -moz-box-shadow: 0px 0px 15px 0px rgb(43, 43, 154);
+    box-shadow: 0px 0px 15px 0px rgb(43, 43, 154);
+}
+
+#rateUs:hover {
+    background-color: #00ffff;
+    color: rgb(2, 3, 83);
+    border: 2px solid #00ffff;
+    padding: 0.8em 3em 0.8em 3em;
+    font-weight: 900;
+    font-size: 18px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    -webkit-box-shadow: 0px 0px 15px 0px rgb(43, 43, 154);
+    -moz-box-shadow: 0px 0px 15px 0px rgb(43, 43, 154);
+    box-shadow: 0px 0px 15px 0px rgb(43, 43, 154);
+
+}
+
+#rUS {
+    text-decoration: none;
+}
+
+/*====== correctWrong ======*/
+
+.correctWrong {
+    font-weight: 300;
+    font-size: 3em;
+
+}
+
+#corrette {
+    float: left;
+}
+
+#sbagliate {
+    float: right;
+
+}
+
+/* PAGINA DI ERRORE */
+
+#back{
+    margin: 0 auto;
+    text-align: center;
+}
+
+#back h4{
+    margin: 0;
+    margin-bottom: 1em;
+}
+
+
+#errore{
+    text-align: center;
+    background-color: #00ffff;
+    padding: 0.8em 3em 0.8em 3em;
+    border: none;
+    font-weight: 900;
+    font-size: 18px;
+    color: rgb(2, 3, 83);
+    -webkit-box-shadow: 0px 0px 25px 0px #00ffff;
+    -moz-box-shadow: 0px 0px 25px 0px #00ffff;
+    box-shadow: 0px 0px 25px 0px #00ffff;
+    cursor: pointer;
+}
+#errore a{
+    text-decoration: none;
+}
+
+/* PAGINA FEEDBACK */
+
+#moreInfo {
+    background-color: #00ffff;
+    color: rgb(2, 3, 83);
+    border: 2px solid #00ffff;
+    padding: 0.8em 3em 0.8em 3em;
+    font-weight: 900;
+    font-size: 18px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    -webkit-box-shadow: 0px 0px 25px 0px #00ffff;
+    -moz-box-shadow: 0px 0px 25px 0px #00ffff;
+    box-shadow: 0px 0px 25px 0px #00ffff;
+
+}
+
+#feedPlaceHolder {
+    padding: 0px 20px 5px ;
+    width: 80%;
+    margin: 0 auto;
+    font-size: 15px;
+    background-color: transparent;
+    border: transparent;
+    border-bottom: 2px solid #c2128d;
+    display: flex;
+    justify-content: center;
+}
+
+
+/*-------------------------------BUTTON NEXT---------------------*/
+
+#buttonNext {
+    text-align: right;
+}
+
+#btnNext {
     background-color: #00ffff;
     padding: 0.8em 3em 0.8em 3em;
     border: none;

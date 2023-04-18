@@ -1,0 +1,310 @@
+.container {
+    display: inline-block;
+
+}
+
+#main {
+    width: 80%;
+    padding-left: 100px;
+}
+
+aside {
+    width: 300px;
+    height: 100%;
+}
+
+body {
+    margin: 0 auto;
+    box-sizing: border-box;
+    background: url(../img/bg.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: bottom;
+    width: 80%;
+}
+
+img {
+    display: inline-block;
+    height: 50px;
+    margin-left: 100px;
+    margin-top: 30px;
+}
+
+#timer {
+    display: inline-block;
+
+}
+
+#space {
+    display: inline-block;
+    width: 50%;
+}
+
+li {
+    color: white;
+    font-family: Outfit, sans-serif;
+}
+
+p {
+    color: white;
+    font-family: Outfit, sans-serif;
+}
+
+h1,
+h3 {
+    color: white;
+    font-family: Outfit, sans-serif;
+}
+
+span {
+    font-weight: bolder;
+}
+
+h3 {
+    color: #c2128d;
+    font-size: 2.5rem;
+}
+
+h1 {
+    font-size: 4.4rem;
+    font-weight: 100;
+}
+
+p,
+li {
+    font-size: 1.2rem;
+    letter-spacing: 1.2px;
+}
+
+input {
+    display: inline-block;
+    accent-color: white;
+
+    font-family: Outfit, sans-serif;
+}
+
+#label {
+    color: white;
+    font-weight: bold;
+    font-family: Outfit, sans-serif;
+    letter-spacing: 1.2px;
+}
+
+#btn {
+    background-color: #00ffff;
+    height: 50px;
+    width: 180px;
+    color: black;
+    margin-left: 300px;
+    font-weight: bold;
+    font-family: Outfit, sans-serif;
+    font-size: 1.3rem;
+    box-shadow: 0px 0px 7px 7px rgba(0, 255, 255, 0.4);
+    border: none;
+    cursor: pointer;
+}
+
+#btn1 {
+    background-color: #00ffff;
+    height: 50px;
+    width: 180px;
+    color: black;
+
+    font-weight: bold;
+    font-family: Outfit, sans-serif;
+    font-size: 1.3rem;
+    box-shadow: 0px 0px 7px 7px rgba(0, 255, 255, 0.4);
+    border: none;
+    cursor: pointer;
+}
+
+input[type="checkbox"]:not(:checked) {
+    accent-color: rgba(0, 0, 0, 0);
+    border: 2px solid white;
+    opacity: 0;
+}
+
+#cb {
+    display: none;
+    box-sizing: border-box;
+    accent-color: rgba(0, 0, 0, 0.0);
+    border-color: white;
+    border: 2px solid white;
+    content: "";
+    outline: none;
+
+}
+
+#cb:checked {
+    opacity: 0;
+    accent-color: white;
+}
+
+fieldset {
+    border: none;
+}
+
+#spanTitle {
+    font-weight: 900;
+}
+
+input[type="checkbox"]:checked+label:before {
+    width: 1.3em;
+    height: 1.3em;
+    border-radius: 0.2em;
+    border: 2px solid #fff;
+    -webkit-transform: rotate(90deg);
+    transform: rotate(90deg);
+    background: white;
+    box-shadow: 0 0 0 1px #000;
+    cursor: pointer;
+}
+
+
+input[type="checkbox"]+label:before {
+    content: "";
+    display: inline-block;
+    width: 1.4em;
+    height: 1.4em;
+    border: 1px solid white;
+    border-radius: 0.2em;
+    position: relative;
+    left: -15px;
+    top: 7px;
+    -webkit-transition: all 0.2s, background 0.2s ease-in-out;
+    transition: all 0.2s, background 0.2s ease-in-out;
+    background: rgba(255, 255, 255, 0.00);
+    box-shadow: -2px -1px 0 #343a3f;
+    background: transparent;
+    cursor: pointer;
+}
+
+.radio {
+    display: inline-block;
+    border-radius: 14px;
+    opacity: 0;
+}
+
+#question {
+    color: white;
+    text-align: center;
+    font-family: Outfit, sans-serif;
+    font-weight: 900;
+    letter-spacing: 1.5;
+    font-size: 3.0rem;
+    font-weight: 100;
+}
+
+.title {
+    color: white;
+    text-align: center;
+    font-family: Outfit, sans-serif;
+    font-weight: 900;
+    letter-spacing: 1.5;
+}
+
+.center {
+    display: block;
+    margin: 0 auto;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+.formContainer {
+    display: block;
+    width: 100%;
+    padding-bottom: 20px;
+
+}
+
+.label {
+    display: inline-block;
+    width: 400px;
+    height: 50px;
+    color: white;
+    text-align: center;
+    font-family: Outfit, sans-serif;
+    background-color: rgba(255, 255, 255, 0.2);
+    letter-spacing: 1.2px;
+    border-radius: 28px;
+    padding-top: 18px;
+    margin: 10px 10px;
+    background:
+        linear-gradient(#272952 0 0) padding-box,
+        /*this is your grey background*/
+        linear-gradient(to right, white, rgba(255, 255, 255, 0.3)) border-box;
+    border: 5px solid transparent;
+
+}
+
+input[type="radio"]:checked+label {
+    background:
+        linear-gradient(to top, #a70285, #c4008f) padding-box,
+        /*this is your grey background*/
+        linear-gradient(to right, white, rgba(255, 255, 255, 0.3)) border-box;
+}
+
+.purple {
+    color: #c2128d;
+}
+
+#counter {
+    color: white;
+    text-align: center;
+    font-family: Outfit, sans-serif;
+    font-weight: bold;
+    letter-spacing: 1.5;
+    font-size: 1.4rem;
+}
+
+@keyframes growProgressBar {
+
+    0%,
+    33% {
+        --pgPercentage: 0;
+    }
+
+    100% {
+        --pgPercentage: var(--value);
+    }
+}
+
+@property --pgPercentage {
+    syntax: '<number>';
+    inherits: false;
+    initial-value: 30;
+}
+
+div[role="progressbar"] {
+    --size: 12rem;
+    --fg: #00ffff;
+    --bg: rgba(255, 255, 255, 0.3);
+    --pgPercentage: var(--value);
+    animation: growProgressBar 3s 1 forwards;
+    width: var(--size);
+    height: var(--size);
+    border-radius: 50%;
+    display: grid;
+    place-items: center;
+    background:
+        radial-gradient(closest-side, #8d007a 80%, transparent 0 99.9%, #8d007a 0),
+        conic-gradient(var(--fg) calc(var(--pgPercentage) * 3.33%), var(--bg) 0);
+    font-family: Helvetica, Arial, sans-serif;
+    font-size: calc(var(--size) / 5);
+    color: var(--fg);
+}
+
+div[role="progressbar"]::before {
+    counter-reset: percentage var(--value);
+    content: counter(percentage) '';
+}
+
+header {
+    padding-top: 30px;
+    display: flex;
+    justify-content: space-between;
+}

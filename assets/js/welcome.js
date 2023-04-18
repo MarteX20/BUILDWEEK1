@@ -1,27 +1,67 @@
+
 var checkbox = document.getElementById("accept");
 var button = document.getElementById("proceedButton");
 
 checkbox.addEventListener("click", toggleButton());
 
+
+// Verifia se CheckBox è stata accettata
 function toggleButton() {
-    if (checkbox.checked === true) {
+    if (checkbox.checked === true) { // se la checkbox è chekata 
         button.disabled = false;
         accept.style.backgroundColor = "white";
-        return true;
+        localStorage.setItem('cb', 'checked'); // salva il suo valore checked
+        return true; // e quindi fa andare alla pagina di domande
     } else {
-        button.disabled = true;
+        button.disabled = true; 
         accept.style.backgroundColor = "transparent";
+        localStorage.setItem('cb', 'unchecked'); // se non è checked (quindi unchecked) non fa andare avanti e reindirizza alla pagina di errore
     };
 };
 
-button.addEventListener('click', proceed());
+//button.addEventListener('click', proceed()); non ci serve perchè l'attivazione de button dipende solo dal click sulla checkbox
 
+/*
 function proceed (){
-    if(toggleButton() === true){
+    if(localStorage.getItem('checkBox') === 'checked'){
         //button.disabled = false;
-        localStorage.setItem('accept', toggleButton());
+        localStorage.setItem('accept', 'true');
     };
 };
+*/
+
+
+
+
+// Potrebbero esserci diversi motivi per cui la checkbox potrebbe essere disattivata. Ecco alcune cose da verificare:
+
+// Verificare che l'elemento HTML per la checkbox (<input type="checkbox" id="accept">) esista nella pagina e che l'ID sia corretto. Puoi farlo aprendo il tuo file HTML con un editor di codice e controllando che l'elemento checkbox esista e abbia l'ID "accept".
+
+// Verificare che l'elemento HTML per il bottone (<button id="proceedButton">Procedi</button>) esista nella pagina e che l'ID sia corretto.
+
+// Verificare che il tuo file JavaScript sia collegato correttamente al file HTML. Puoi farlo aprendo il tuo file HTML con un editor di codice e controllando che il tuo file JavaScript sia elencato correttamente nella sezione <head> o <body> del tuo file HTML.
+
+// Verificare che il tuo file JavaScript non contenga errori di sintassi o logici. Puoi farlo aprendo il tuo file JavaScript con un editor di codice e controllando che non ci siano errori evidenziati dal tuo editor o dal tuo ambiente di sviluppo.
+
+// Se dopo aver controllato questi punti la checkbox continua a non funzionare correttamente, potresti aver bisogno di ulteriori informazioni sul problema per risolverlo.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -66,21 +106,3 @@ function proceed (){
 
 
 
-/*
-    // Questo js deve prendere il nome utente, deve scriverlo da qualche parte nel localstorage (ci mostra come si fa) e deve passare alla pagina successiva. Tutto questo lo deve fare il button quindi EventListener è il button
-
-document.getElementById('entra').addEventListener('click', function(){
-    let utente = document.getElementById('utente').value; //la variabile utente è il valore che viene inserito nell'input utente
-    if(utente == ''){ //se non c'è nome utente blocca procedura e manda un alert
-        alert('Inserire il nome utente');
-        return; // se la procedura arriva a qua non farà niente di tutto quello che c'è scritto dopo, return interrompe l'esecuzione di un blocco.
-    }
-    //localStorage: archiviazione nella chache del browser serve a mandare i dati da un punto all'altro della procedura e ha 2 metodi: set item (vuole il nome del local storage che è una stringa, e un valore da metterci dentro) e get item.
-    localStorage.setItem('utente', utente); //questo deve andare alla pagina Todo
-    location.href = './todo.html'; //location.href è l'istruzione (metodo) per fare in modo che un button sia un link.. 
-
-});
-
-//LocalStorage deve solo leggere e scrivere il dato ma la verifica DEVE essere fatta nell'altra pagina perchè se no potrebbe entrare chiunque
-
-*/
