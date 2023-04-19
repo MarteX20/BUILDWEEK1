@@ -1,8 +1,19 @@
+
+/*
 window.addEventListener('load', function () {
-  if (localStorage.getItem('cb') !== 'checked') {
+  if (localStorage.getItem('cb') !== checked) {
       location.href = '../errore.html';
-  };
+  }
 });
+*/
+
+//NON MI FA TORNARE ALLA PAGINA WELCOME: window.history.pushState è un metodo, 'popstate' indica il click sulla freccia per tronare indietro
+window.history.pushState(null, null);
+window.addEventListener('popstate', function(){
+  window.history.pushState(null, null);
+});
+
+
 
 const questions = [
   {
@@ -107,22 +118,24 @@ const questions = [
 var count = 0;
 var result = 0;
 
-window.onload = () => {
 
+
+    //vengono chiamate le funzioni principali della pagina
   populateForm(count);
   setupCounter();
   startTimer();
 
+  //viene settato un compito all'azione di click del pulsante
   let btn = document.getElementById('btn1');
   btn.disabled = true;
   btn.onclick = () => {
     check();
     next();
   };
-};
+
 
 var currentSelection = [];
-
+//funzione che popola il form delle domande
 function populateForm(index) {
   if (index >= questions.length) {
     nextPage();
@@ -132,10 +145,10 @@ function populateForm(index) {
   title.innerText = questions[count].question;
   let form = document.querySelector('form > fieldset > div');
   let element = questions[index];
-  let lista = [...element.incorrect_answers, element.correct_answer];
+  let lista = [...element.incorrect_answers, element.correct_answer];//inizializza un array cont tutte le risposte corrette e sbagliate
   lista.sort();
   form.innerHTML = '';
-  for (var i = 0; i < lista.length; i++) {
+  for (var i = 0; i < lista.length; i++) {//ciclo che crea radio button per ciascuna risposta e li aggiunge al form
     let item = lista[i];
     let element = document.createElement('input');
     element.setAttribute('type', 'radio');
@@ -148,11 +161,11 @@ function populateForm(index) {
     lbl.classList = ['label'];
     lbl.innerText = item;
     form.appendChild(lbl);
-    element.onclick = () => {
+    element.onclick = () => {//azione sul radio button
       let btn = document.getElementById('btn1');
 
       let lista = document.querySelectorAll('.radio');
-      if (element.checked) {
+      if (element.checked) {//se la risposta è selezionata si attiva il pulsante per procedere
         btn.disabled = false;
         currentSelection = [element.getAttribute('id')];
       } else {
@@ -160,7 +173,7 @@ function populateForm(index) {
       }
       for (var i = 0; i < lista.length; i++) {
 
-        let listElement = lista[i];
+        let listElement = lista[i];//se l'elemento non è quello selezionato viene deselezionato
         if (currentSelection.indexOf(listElement.getAttribute('id')) == -1) {
           listElement.checked = false;
         }
@@ -171,14 +184,14 @@ function populateForm(index) {
     };
   }
 }
-
+//titolo del footer
 function setupCounter() {
   let element = document.getElementById('counter');
   element.innerHTML = "   QUESTION " + (count + 1) + "<span class=\"purple\"> / " + questions.length + "</span>";
 }
 
 var interval;
-
+//funzione che attiva il timer, eseguito 30 volte similmente ad un ciclo while
 function startTimer() {
   var time = 30;
   let bar = document.querySelector('#pBar');
@@ -194,13 +207,22 @@ function startTimer() {
     bar.setAttribute('style', `--value:${time}`);
   }, 1000);
 }
-
+//passaggio alla pagina del risultato
 function nextPage() {
-  localStorage.setItem('risultato', result);
+  localStorage.setItem('count', count);
+  sessionStorage.setItem('risultato', result); //variabile che viene passata alla pagina risultati.js
   console.log('risultato');
   console.log(result);
-}
-
+  window.location = './risultati.html';
+  
+  let buttonNext = document.getElementById('btn1'); //collegato button finale alla pagina risultati
+    buttonNext.addEventListener('click', () => {
+      localStorage.setItem('risultato', result);
+      localStorage.setItem('count', count);
+      window.location.href = '../risultati.html';
+  });
+};
+//passaggio all domanda successiva
 function next() {
   count++;
   clearInterval(interval);
@@ -213,7 +235,7 @@ function next() {
   setupCounter();
   startTimer();
 }
-
+//funzione che controlla se la risposta selezionata è corretta ed incrementa il risultato
 function check() {
   let elements = document.querySelectorAll('input[type=\"radio\"]');
   let correct = questions[count].correct_answer;
