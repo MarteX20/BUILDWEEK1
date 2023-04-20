@@ -1,7 +1,7 @@
 window.onload = () => {
     let result = sessionStorage.getItem('risultato');//controlla dati salvati nella navigazione e reindirizza alla prima pagina
     if(!result){
-        window.location = './index.html';
+        window.location = './errore.html';
     }
     let bar = document.getElementById('resultBar');//viene impostata la progress bar
     bar.setAttribute('style', `--value:${100 - result * 10}`);
@@ -21,6 +21,6 @@ window.onload = () => {
     let button = document.getElementById('buttonRate');
     button.disabled = false;
     button.onclick = () => {
-            window.location = './rate.html';
+        window.location = './rate.html';
     };
 };

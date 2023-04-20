@@ -39,10 +39,10 @@ img {
 
 }
 
-#space {
+/* #space {
     display: inline-block;
     width: 50%;
-}
+} */
 
 li {
     color: white;
@@ -97,7 +97,7 @@ input {
 
 /*==================================================================================================================================*/
 
-/*=======                  STILE PULSANTE PROCEED PAGINA INIZIALE                 ========*/
+/*=======                  STILE PAGINA INIZIALE                 ========*/
 #btn {
     background-color: #00ffff;
     height: 50px;
@@ -111,6 +111,7 @@ input {
     border: none;
     cursor: pointer;
 }
+
 
 /*==================================================================================================================================*/
 
@@ -129,6 +130,11 @@ input {
     cursor: pointer;
 }
 
+#pericoloso {
+    display: flex;
+    align-items: center;
+}
+
 /*==================================================================================================================================*/
 
 /*=======                   STILE CHECKBOX PAGINA INZIALE                    ========*/
@@ -139,6 +145,7 @@ fieldset {
 #spa {
     display: flex;
     justify-content: space-between;
+    margin-bottom: 5rem;
 }
 
 #cb {
@@ -176,15 +183,13 @@ input[type="checkbox"]+label:before {
     height: 1.4em;
     border: 1px solid white;
     border-radius: 0.2em;
-    position: relative;
-    left: -15px;
-    top: 7px;
     -webkit-transition: all 0.2s, background 0.2s ease-in-out;
     transition: all 0.2s, background 0.2s ease-in-out;
     background: rgba(255, 255, 255, 0.00);
     box-shadow: -2px -1px 0 #343a3f;
     background: transparent;
     cursor: pointer;
+    margin-right: 1rem;
 }
 
 input[type="checkbox"]:not(:checked) {
@@ -198,7 +203,11 @@ input[type="checkbox"]:not(:checked) {
     font-weight: bold;
     font-family: Outfit, sans-serif;
     letter-spacing: 1.2px;
+    display: flex;
+    align-items: center;
 }
+
+
 
 /*==================================================================================================================================*/
 
@@ -329,6 +338,9 @@ div[role="progressbar"]::before {
 /*==================================================================================================================================*/
 
 /*=======                   STILE PAGINA DEI RISULTATI                    ========*/
+
+
+
 #titoloRes {
     color: white;
     font-size: 4em;
@@ -384,20 +396,19 @@ div[role="progressbar"]::before {
 }
 
 
-
 #cakeResults {
     text-align: center;
     margin: 0 auto;
     width: 40%;
     margin-bottom: 5rem;
+    max-width: 100%;
 }
 
-h5 {
-    padding-bottom: 55rem;
-}
+
 
 #textBtn {
     box-sizing: border-box;
+    height: 0vh;
 }
 
 #cake {
@@ -406,32 +417,15 @@ h5 {
     text-align: center;
 }
 
-#button {
-    margin-bottom: 5rem;
-}
-
-#corrette {
-    margin-top: 8rem;
-}
-
-#sbagliate {
-    margin-top: 8rem;
-}
-
-
-
 /*====== CORRECT-WRONG ======*/
-.correctWrong {
-    font-weight: 300;
-    font-size: 3em;
-    display: inline-block;
-}
+
 
 #corrette {
     color: white;
     font-family: 'Outfit', sans-serif;
     font-size: 1.5em;
     float: left;
+    margin-top: 8rem;
 }
 
 #sbagliate {
@@ -439,6 +433,7 @@ h5 {
     font-family: 'Outfit', sans-serif;
     font-size: 1.5em;
     float: right;
+    margin-top: 8rem;
 }
 
 
@@ -755,4 +750,45 @@ input[type="text"]::placeholder {
     box-shadow: 0px 0px 7px 7px rgba(0, 255, 255, 0.4);
     border: none;
     margin-top: 45px;
+
+}
+
+/*extra*/
+
+.dLabel {
+    color: white;
+    background-color: transparent;
+    border: 1px solid #c2128d;
+    padding: 5px 10px;
+    margin-top: 15px;
+
+}
+
+.difficulty {
+    margin: 15px 10px;
+}
+
+#popup {
+    Width: 300px;
+    padding: 10px 20px;
+    Background: gray;
+    Box-sizing: border-box;
+    /* for inside padding */
+    Padding: 10px;
+    border: 1px solid #c2128d;
+    background-color: #0c113b;
+
+    /* for center */
+    Position: absolute;
+    top: 50%;
+    left: 50%;
+    Transform: translate(-50%, -50%);
+
+    /* for hider */
+    display: none;
+}
+
+#popup>h3 {
+    color: white;
+    font-size: 1.5rem;
 }

@@ -1,4 +1,3 @@
-
 /*
 window.addEventListener('load', function () {
   if (localStorage.getItem('cb') !== checked) {
@@ -9,7 +8,7 @@ window.addEventListener('load', function () {
 
 //NON MI FA TORNARE ALLA PAGINA WELCOME: window.history.pushState è un metodo, 'popstate' indica il click sulla freccia per tronare indietro
 window.history.pushState(null, null);
-window.addEventListener('popstate', function(){
+window.addEventListener('popstate', function () {
   window.history.pushState(null, null);
 });
 
@@ -117,50 +116,78 @@ const questions = [
 
 var count = 0;
 var result = 0;
+var difficulty = '';
 
+//hard medium easy
 
+async function fetchJSONData(difficult) {
+  const response = await fetch(`https://opentdb.com/api.php?amount=10&category=18&difficulty=${difficult}`);
+  const jsonData = await response.json();
 
-    //vengono chiamate le funzioni principali della pagina
+  for (var i = 0; i < jsonData['results'].length; i++) {
+    questions[i] = jsonData['results'][i];
+
+  }
   populateForm(count);
   setupCounter();
   startTimer();
+}
 
-  //viene settato un compito all'azione di click del pulsante
-  let btn = document.getElementById('btn1');
-  btn.disabled = true;
-  btn.onclick = () => {
-    check();
-    next();
-  };
+//vengono chiamate le funzioni principali della pagina
+//vengono chiamate in fetchJSONData
+//populateForm(count);
+//setupCounter();
+//startTimer();
+
+
+difficulty = sessionStorage.getItem('difficulty');
+fetchJSONData(difficulty);
+
+//viene settato un compito all'azione di click del pulsante
+let btn = document.getElementById('btn1');
+btn.disabled = true;
+btn.onclick = () => {
+  check();
+  next();
+};
 
 
 var currentSelection = [];
 //funzione che popola il form delle domande
 function populateForm(index) {
+
   if (index >= questions.length) {
     nextPage();
     return;
   }
+
   let title = document.getElementById('question');
-  title.innerText = questions[count].question;
+  title.innerHTML = questions[count].question;
   let form = document.querySelector('form > fieldset > div');
   let element = questions[index];
   let lista = [...element.incorrect_answers, element.correct_answer];//inizializza un array cont tutte le risposte corrette e sbagliate
+
   lista.sort();
   form.innerHTML = '';
+
   for (var i = 0; i < lista.length; i++) {//ciclo che crea radio button per ciascuna risposta e li aggiunge al form
+
     let item = lista[i];
     let element = document.createElement('input');
+
     element.setAttribute('type', 'radio');
     element.setAttribute('value', item);
     element.classList = ['radio'];
     element.setAttribute('id', 'radio' + i);
-    form.appendChild(element);
+
+    form.appendChild(element);  //mette l'elemment dentro il div (l'element creato è un input con attributo di button radio e ha come valore item che sarebbe una risposta)
+
     let lbl = document.createElement('label');
     lbl.setAttribute('for', 'radio' + i);
     lbl.classList = ['label'];
-    lbl.innerText = item;
+    lbl.innerHTML = item;
     form.appendChild(lbl);
+
     element.onclick = () => {//azione sul radio button
       let btn = document.getElementById('btn1');
 
@@ -171,19 +198,20 @@ function populateForm(index) {
       } else {
         btn.disabled = true;
       }
-      for (var i = 0; i < lista.length; i++) {
 
+
+
+      for (var i = 0; i < lista.length; i++) {
         let listElement = lista[i];//se l'elemento non è quello selezionato viene deselezionato
         if (currentSelection.indexOf(listElement.getAttribute('id')) == -1) {
           listElement.checked = false;
         }
-
       }
-      // let btn = document.getElementById('btn');
-
     };
   }
 }
+
+
 //titolo del footer
 function setupCounter() {
   let element = document.getElementById('counter');
@@ -211,17 +239,48 @@ function startTimer() {
 function nextPage() {
   localStorage.setItem('count', count);
   sessionStorage.setItem('risultato', result); //variabile che viene passata alla pagina risultati.js
-  console.log('risultato');
-  console.log(result);
   window.location = './risultati.html';
-  
+
   let buttonNext = document.getElementById('btn1'); //collegato button finale alla pagina risultati
-    buttonNext.addEventListener('click', () => {
-      localStorage.setItem('risultato', result);
-      localStorage.setItem('count', count);
-      window.location.href = '../risultati.html';
+  buttonNext.addEventListener('click', () => {
+    localStorage.setItem('risultato', result);
+    localStorage.setItem('count', count);
+    window.location.href = '../risultati.html';
   });
 };
+
+/*var interval;
+function startTimer() {
+  let countdownTimer = document.getElementById("timerText2");
+  let progressCircle = document.getElementById("progressCircle");
+  let time = 31; //tempo del timer
+  let progressDuration = time * 1000; //durata progress circle
+
+  var progressKeyframes = new KeyframeEffect( // uso un costruttore animazione e gli imposto le i valori dell'oggetto animazione
+    progressCircle,
+    [
+      { strokeDasharray: '0 100' },
+      { strokeDasharray: '100 100' }
+    ],
+    { duration: progressDuration, fill: 'forwards' }
+  );
+
+  var animation = new Animation(progressKeyframes, document.timeline); //creo l'animazione
+  animation.play();
+
+  interval = setInterval(() => {
+    time--;
+
+    if (time == 0) {
+      countdownTimer.textContent = 0;
+      next();
+      return;
+    }
+    countdownTimer.textContent = time;
+  }, 1000);
+}*/
+
+
 //passaggio all domanda successiva
 function next() {
   count++;
@@ -240,21 +299,35 @@ function check() {
   let elements = document.querySelectorAll('input[type=\"radio\"]');
   let correct = questions[count].correct_answer;
   let answer = [];
-  for (var i in elements) {      
+  for (var i in elements) {
     let element = elements[i];
     if (element.checked) {
       let value = element.getAttribute('value');
       answer.push(value);
     }
   }
-  console.log('risposte');
-  console.table(answer);
   if (answer.every(element => correct.indexOf(element) != -1)) {
-    console.log('correct answer.');
-    console.log('counter: ' + (count + 1));
     result++;
+    showPopup('risposta corretta; risultato: ' + result + " su 10");
+    setTimeout(function () {
+      closePopup();
+    }, 500);
   } else {
-    console.log('wrong answer.');
-    console.log('counter: ' + (count + 1));
+    showPopup('risposta sbagliata; risultato: ' + result + " su 10");
+    setTimeout(function () {
+      closePopup();
+    }, 500);
   }
+}
+
+function showPopup(text) {
+  let popup = document.getElementById('popup');
+  let title = document.querySelector('#popup > h3');
+  title.innerText = text;
+  popup.style.display = 'block';
+}
+
+function closePopup() {
+  let popup = document.getElementById('popup');
+  popup.style.display = 'none';
 }
