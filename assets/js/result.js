@@ -21,6 +21,6 @@ window.onload = () => {
     let button = document.getElementById('buttonRate');
     button.disabled = false;
     button.onclick = () => {
-        window.location = './rate.html';
+        window.location = './feedback.html';
     };
 };

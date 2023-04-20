@@ -1,11 +1,11 @@
 //PER NON ANDARE SCRIVENDO IL LINK MA VA MESSA LA CONDIZIONE ANCHE DELLE DOMANDE
-/*
+
 window.addEventListener('load', function(){ 
    if (localStorage.getItem('cb') !== 'unchecked' && !localStorage.getItem('risultato')) {
       location.href = '../errore.html';
    }
 });
-*/
+
 
 
 // Seleziono tutti gli elementi "path" e crea un array

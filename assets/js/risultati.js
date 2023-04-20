@@ -19,12 +19,6 @@ var frazIncorr = `${count - results} / ${count}`; //frazione di risposte corrett
 
 var cakeT = document.getElementById('cake').getContext('2d'); // funzione predefinita per dire dove sta questo grafico e che sarà 2d.
 
-
-
-
-
-
-
 // Definisco i dati da mostrare nel grafico
 // Grafico
 const ctx = document.getElementById('cake');
@@ -41,9 +35,6 @@ new Chart(ctx, {
     }]
     },
 });
-
-
-
 
 //var corrette = document.getElementById('corrette').createElement('h2');
 

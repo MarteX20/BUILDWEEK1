@@ -24,20 +24,19 @@ window.onload = () => {
     };
 
     let radios = document.querySelectorAll('input[type=\"radio\"]');
-    for(var i = 0; i < radios.length; i++){
+    for (var i = 0; i < radios.length; i++) {
         radios[i].checked = i == 0;
     }
     var current;
     radios.forEach(element => element.onchange = () => {
-      //  element.checked = !element.checked;
+        //  element.checked = !element.checked;
         current = element.getAttribute('value');
-        for(var i = 0; i < radios.length; i++){
-            if(radios[i].getAttribute('value') == current){
+        for (var i = 0; i < radios.length; i++) {
+            if (radios[i].getAttribute('value') == current) {
                 continue;
-            }else{
+            } else {
                 radios[i].checked = false;
             }
-            
         }
     });
 };

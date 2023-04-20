@@ -258,6 +258,7 @@ input[type="checkbox"]:not(:checked) {
     border-radius: 28px;
     padding-top: 18px;
     margin: 10px 10px;
+
     background:
         linear-gradient(#272952 0 0) padding-box,
         /*this is your grey background*/
@@ -266,10 +267,12 @@ input[type="checkbox"]:not(:checked) {
 }
 
 input[type="radio"]:checked+label {
+
     background:
         linear-gradient(to top, #a70285, #c4008f) padding-box,
         /*this is your grey background*/
         linear-gradient(to right, white, rgba(255, 255, 255, 0.3)) border-box;
+
 }
 
 #counter {
@@ -291,7 +294,7 @@ input[type="radio"]:checked+label {
     padding-bottom: 20px;
 }
 
-/*============ STILE TIMER ==============*/
+/*============ STILE TIMER ============== -------------------------> MARCO
 @keyframes growProgressBar {
 
     0%,
@@ -333,7 +336,32 @@ div[role="progressbar"] {
 div[role="progressbar"]::before {
     counter-reset: percentage var(--value);
     content: counter(percentage) '';
+}*/
+
+/*============ STILE TIMER ============== -------------------------> FLAVIO*/
+
+#timer {
+    display: inline-block;
 }
+
+#timerText2 {
+    font-size: 28px;
+}
+
+#timerText1,
+#timerText2,
+#timerText3 {
+    fill: rgb(255, 255, 255);
+    font-family: "Outfit";
+    text-shadow: 4px 4px 20px black;
+}
+
+#timerText1,
+#timerText3 {
+    font-size: 6px;
+}
+
+
 
 /*==================================================================================================================================*/
 
@@ -400,7 +428,6 @@ div[role="progressbar"]::before {
     text-align: center;
     margin: 0 auto;
     width: 40%;
-    margin-bottom: 5rem;
     max-width: 100%;
 }
 
@@ -408,7 +435,7 @@ div[role="progressbar"]::before {
 
 #textBtn {
     box-sizing: border-box;
-    height: 0vh;
+    height: 90vh;
 }
 
 #cake {
@@ -417,23 +444,26 @@ div[role="progressbar"]::before {
     text-align: center;
 }
 
+
+
 /*====== CORRECT-WRONG ======*/
 
 
 #corrette {
     color: white;
     font-family: 'Outfit', sans-serif;
-    font-size: 1.5em;
+    font-size: 2em;
     float: left;
-    margin-top: 8rem;
+    margin-top: 15rem;
 }
 
 #sbagliate {
-    color: white;
+    color: rgba(255, 255, 255, 0.5);;
     font-family: 'Outfit', sans-serif;
-    font-size: 1.5em;
+    font-size: 2em;
     float: right;
-    margin-top: 8rem;
+    margin-top: 15rem;
+    font-weight: bold;
 }
 
 
@@ -780,7 +810,7 @@ input[type="text"]::placeholder {
 
     /* for center */
     Position: absolute;
-    top: 50%;
+    top: 10%;
     left: 50%;
     Transform: translate(-50%, -50%);
 
