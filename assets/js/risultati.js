@@ -1,11 +1,11 @@
 //PER NON ANDARE SCRIVENDO IL LINK 
-/*
+
 window.addEventListener('load', function(){ 
-    if (localStorage.getItem('cb') !== 'unchecked' && !localStorage.getItem('risultato')) {
+    if (localStorage.getItem('cb') !== 'unchecked' && !sessionStorage.getItem('risultato')) {
       location.href = '../errore.html';
     }
 });
-*/
+
 
 //Dobbiamo prima passare con un localstorage il valore di result e di count
 
@@ -31,7 +31,6 @@ new Chart(ctx, {
       backgroundColor: ['#00ffff' ,'#c2128d',],
       label: '%',
       borderWidth: 1,
-      
     }]
     },
 });
@@ -44,5 +43,5 @@ document.getElementById('sbagliate').innerHTML = `WRONG: <br> ${percentualeIncor
 
   if(results < 6){
     let title = document.getElementById('score');
-    title.innerHTML = 'Fail!</br><span class=\"green\">you failed the exam.</span>';
+    title.innerHTML = 'Fail!</br><span class=\"green\">you failed the exam.<br><br></span>';
 }

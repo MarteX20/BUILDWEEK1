@@ -1,9 +1,8 @@
-// // window.addEventListener('load', function () {
-// //   if (localStorage.getItem('cb') !== checked) {
-// //       location.href = '../errore.html';
-// //   }
-// // });
-
+window.addEventListener('load', function(){ //verifica se la checkbox è stata accettata 
+  if(!sessionStorage.getItem('ok')){
+    location.href = '../errore.html'
+  }
+})
 //NON MI FA TORNARE ALLA PAGINA WELCOME: window.history.pushState è un metodo, 'popstate' indica il click sulla freccia per tronare indietro
 window.history.pushState(null, null);
 window.addEventListener('popstate', function () {
@@ -116,7 +115,7 @@ var difficulty = '';
 
 //hard medium easy
 
-async function fetchJSONData(difficult) {
+  async function fetchJSONData(difficult) {
   const response = await fetch(`https://opentdb.com/api.php?amount=10&category=18&difficulty=${difficult}`);
   const jsonData = await response.json();
 
@@ -235,7 +234,7 @@ function startTimer() {
   let time = 31; //tempo del timer
   let progressDuration = time * 1000; //durata progress circle
 
-  var progressKeyframes = new KeyframeEffect( // uso un costruttore animazione e gli imposto le i valori dell'oggetto animazione
+  var progressKeyframes = new KeyframeEffect( // uso un costruttore animazione e gli imposto i valori dell'oggetto animazione
     progressCircle,
     [
       { strokeDasharray: '0 100' },
@@ -244,15 +243,15 @@ function startTimer() {
     { duration: progressDuration, fill: 'forwards' }
   );
 
-  var animation = new Animation(progressKeyframes, document.timeline); //creo l'animazione
-  animation.play();
+  var animation = new Animation(progressKeyframes, document.timeline); // istanzio la variabile di animazione 
+  animation.play(); // invoco l'animazione
 
-  interval = setInterval(() => {
+  interval = setInterval(() => { // funzione che ad intervalli di un secondo fa scalare il contatore del timer
     time--;
 
-    if (time == 0) {
+    if (time == 0) { // quando il timer raggiunge lo zero chiama la funzione "next()" per passare alla domanda successiva
       countdownTimer.textContent = 0;
-      next();
+      next(); 
       return;
     }
     countdownTimer.textContent = time;
@@ -263,13 +262,13 @@ function startTimer() {
 function nextPage() {
   localStorage.setItem('count', count);
   sessionStorage.setItem('risultato', result); //variabile che viene passata alla pagina risultati.js
-  window.location = './result.html';
+  window.location = './risultati.html';
 
   let buttonNext = document.getElementById('btn1'); //collegato button finale alla pagina risultati
   buttonNext.addEventListener('click', () => {
     localStorage.setItem('risultato', result);
     localStorage.setItem('count', count);
-    window.location.href = '../result.html';
+    window.location.href = '../risultati.html';
   });
 };
 

@@ -1,5 +1,5 @@
 window.onload = () => {
-    let result = sessionStorage.getItem('risultato');//controlla dati salvati nella navigazione e reindirizza alla prima pagina
+    let result = sessionStorage.getItem('risultato');//controlla dati salvati nella navigazione e reindirizza alla pagina di errore
     if(!result){
         window.location = './errore.html';
     }
@@ -16,7 +16,6 @@ window.onload = () => {
         let title = document.getElementById('score');
         title.innerHTML = 'Fail!</br><span class=\"green\">you failed the exam.</span>';
     }
-
 
     let button = document.getElementById('buttonRate');
     button.disabled = false;

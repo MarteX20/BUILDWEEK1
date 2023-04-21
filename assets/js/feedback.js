@@ -1,7 +1,7 @@
 //PER NON ANDARE SCRIVENDO IL LINK MA VA MESSA LA CONDIZIONE ANCHE DELLE DOMANDE
 
 window.addEventListener('load', function(){ 
-   if (localStorage.getItem('cb') !== 'unchecked' && !localStorage.getItem('risultato')) {
+   if (localStorage.getItem('cb') !== 'unchecked' && !sessionStorage.getItem('risultato')) {
       location.href = '../errore.html';
    }
 });
@@ -26,7 +26,6 @@ document.addEventListener('mouseup', function (event) {
       clearSelection();
    }
 });
-
 
 // Funzione per annullare la selezione
 function clearSelection() {
